@@ -8,16 +8,23 @@ function validateForm(){
 	var eleccionVacia = eleccion.options[eleccion.selectedIndex].value
 
 	var regLetras = /^[a-zA-Z]*$/;
+	var regMayus = /^[A-Z]{1}/;
 
 	//Campos obligatorios
 
-	if(nombre.value.length == 0){
-		alert("Escribe un nombre")
-	}else if(apellido.value.length == 0){
-		alert("Escribe un apellido")
-	}else if(correo.value.length == 0){
+	if(nombre.value.length < 1){
+		alert("Escribe tu nombre")
+	}else if(nombre.value.search(regMayus)){
+		alert("La primera letra de tu nombre debe estar en mayúscula")
+	}else if(apellido.value.length < 1){
+		alert("Escribe tu apellido")
+	}else if(apellido.value.search(regMayus)){
+		alert("La primera letra de tu apellido debe estar en mayúscula")
+	}
+
+	if(correo.value.length < 1){
 		alert("Escribe un e-mail")
-	}else if(contra.value.length == 0){
+	}else if(contra.value.length < 1){
 		alert("Escribe una contraseña")
 	}
 
